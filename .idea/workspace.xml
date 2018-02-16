@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df615f9c-fc18-4fda-bf54-69497bdf38d6" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/linked_list/LinkedList.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/linked_list/exceptions/MemoryLimitException.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/dataStructures.iml" afterPath="$PROJECT_DIR$/dataStructures.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/linked_list/Node.java" afterPath="$PROJECT_DIR$/src/main/java/linked_list/Node.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" afterPath="$PROJECT_DIR$/target/classes/Main.class" />
-    </list>
+    <list default="true" id="df615f9c-fc18-4fda-bf54-69497bdf38d6" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -309,12 +299,12 @@
       <workItem from="1518704283585" duration="56000" />
       <workItem from="1518704706746" duration="6773000" />
       <workItem from="1518764232487" duration="2823000" />
-      <workItem from="1518812899289" duration="5917000" />
+      <workItem from="1518812899289" duration="5993000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15686000" />
+    <option name="totallyTimeSpent" value="15762000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="-4" width="1366" height="771" extended-state="6" />
