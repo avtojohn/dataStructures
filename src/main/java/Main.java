@@ -1,4 +1,5 @@
 import linked_list.LinkedList;
+import linked_list.*;
 
 public class Main {
 
@@ -7,7 +8,8 @@ public class Main {
         linkedList.push(2);
         linkedList.push(4);
         linkedList.pushFront(5);
-        linkedList.insert(linkedList.getNode(2),9);
         linkedList.print();
+        Node node = linkedList.getHead();
+       // linkedList.printRecursion(node);
     }
 }
