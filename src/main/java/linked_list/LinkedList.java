@@ -1,18 +1,10 @@
 package linked_list;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import stack.Stack;
 
 public class LinkedList<T extends Number> {
 
     private Node head;
-    private Node middle;
-
-    public LinkedList(){
-        this.head = new Node();
-        this.middle = null;
-    }
 
     public Node getHead() {
         return head;
@@ -120,36 +112,38 @@ public class LinkedList<T extends Number> {
      */
     public Node getNode(T data){
         Node current = head;
-        while(current.next!=null){
-            if(current.getData().equals(data))
-                break;
+        while(current != null){
+            if(current.getData().equals(data)) {
+                return current;
+            }
             current = current.next;
         }
-        return current.next==null ? null:current;
+        return null;
     }
 
     /**
      * print element in reversed order
      */
-    public void PrintReverse(){
-        List<Integer> list = new ArrayList<>();
+    public void printReverse(){
         Node current = this.head;
-        while(current!=null){
-            list.add(Integer.valueOf(current.getData().toString()));
+        Stack stack = new Stack();
+        while(current != null){
+            stack.push(current.getData());
             current = current.next;
         }
-        for (int i = list.size() - 1; i >= 0; i--) {
-            System.out.println(list.get(i));
+        while(!stack.isEmpty()){
+            System.out.println(stack.peek());
+            stack.pop();
         }
     }
 
     public boolean hasCycle() {
-        if(this.head == null){
+        if(this.head == null || this.head.next == null){
             return false;
         }
         Node slow = this.head;
-        Node fast = head.next;
-        while(fast!=null){
+        Node fast = this.head;
+        while(fast!=null && fast.next != null){
             fast = fast.next.next;
             slow = slow.next;
             if(slow == fast){
@@ -171,10 +165,18 @@ public class LinkedList<T extends Number> {
         System.out.println(n.getData());
     }
 
-    private Node middle(Node node){
+    /**
+     *
+     * time complexity O(n)
+     * @return middle node of linked list
+     */
+    public Node middle(){
         int size = this.size();
         size/=2;
-        Node current = node;
+        if(size%2==0){
+            size--;
+        }
+        Node current = this.head;
         while(size>0){
             current = current.next;
             size--;
@@ -182,10 +184,13 @@ public class LinkedList<T extends Number> {
         return current;
     }
 
-
-    public boolean isPalindrome(Node node){
-
-
+    /**
+     * time complexity O(n)
+     * auxsilary space O(1)
+     * @return true if list is palindrome and false otherwise
+     */
+    public boolean isPalindrome(){
+        return false;
     }
 
 }
