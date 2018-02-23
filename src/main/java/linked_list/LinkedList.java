@@ -190,7 +190,74 @@ public class LinkedList<T extends Number> {
      * @return true if list is palindrome and false otherwise
      */
     public boolean isPalindrome(){
-        return false;
+        Node slow = head;
+        Node fast = head;
+        Node second;
+        Node prev_of_slow = head;
+        Node midnode = null;
+        boolean res = true;
+        if (head != null && head.next != null) {
+            while (fast != null && fast.next != null) {
+                fast = fast.next.next;
+                prev_of_slow = slow;
+                slow = slow.next;
+            }
+            if (fast != null) {
+                midnode = slow;
+                slow = slow.next;
+            }
+            second = slow;
+            prev_of_slow.next = null;
+            second = reverse(second);
+            res = areSameLists(head, second);
+            second = reverse(second);
+            if (midnode != null) {
+                prev_of_slow.next = midnode;
+                midnode.next = second;
+            } else
+                prev_of_slow.next = second;
+        }
+        return res;
+    }
+
+
+    /**
+     * check if two lists are equal
+     * @param head1
+     * @param head2
+     * @return
+     */
+    private boolean areSameLists(Node head1,Node head2){
+        Node cur1 = head1;
+        Node cur2 = head2;
+        while(cur1.next!=null && cur2.next!=null){
+            if(cur1.getData().equals(cur2.getData())){
+                cur1 = cur1.next;
+                cur2 = cur2.next;
+            }
+            else{
+                return false;
+            }
+        }
+        return cur1.getData().equals(cur2.getData());
+    }
+
+    /**
+     * reverse linked list
+     * @param node
+     * @return
+     */
+    private Node reverse(Node node){
+        Node previous = null;
+        Node current = node;
+        Node next;
+        while(current != null){
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        return previous;
     }
 
 }
