@@ -9,30 +9,53 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
     }
 
     public void insert(Key key,Value value){
-            this.root = insertRecurson(root, key, value);
+            this.root = insertRecursion(root, key, value);
     }
 
-    private Node insertRecurson(Node node,Key key,Value value){
+    private Node insertRecursion(Node node,Key key,Value value){
         if(node == null){
             node=new Node<>(key,value);
             return node;
         }
         if(node.getKey().compareTo(key) < 0){
-             node.right = insertRecurson(node.right,key,value);
+             node.right = insertRecursion(node.right,key,value);
         }
         if(node.getKey().compareTo(key) > 0){
-             node.left = insertRecurson(node.left,key,value);
+             node.left = insertRecursion(node.left,key,value);
+        }
+        int div = balanceValue(node.left,node.right);
+        if(div > 1){
+            if(height(node.left.left)>=height(node.left.right)){
+                node = rightRotate(node);
+            }
+            else{
+                node = leftRotate(node.left);
+                node = rightRotate(node);
+            }
+        }
+        if(div < -1){
+            if(height(node.right.right)>=height(node.right.left)){
+                node = leftRotate(node);
+            }
+            else{
+                node = rightRotate(node.left);
+                node = leftRotate(node);
+            }
         }
         return node;
     }
 
-    public boolean contains(Key key){
+    private int balanceValue(Node left,Node right){
+        return height(left)-height(right);
+    }
+
+    public Node contains(Key key){
         return search(root,key);
     }
 
-    private boolean search(Node root,Key key){
+    private Node search(Node root,Key key){
         if(root.getKey().equals(key)){
-            return true;
+            return root;
         }
         if(root.getKey().compareTo(key) == -1){
             return search(root.right,key);
@@ -40,7 +63,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
         if(root.getKey().compareTo(key) == 1){
             return search(root.left,key);
         }
-        return false;
+        return null;
     }
 
     private void delete(Node root,Key key){
@@ -140,17 +163,16 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
         return max(root);
     }
 
-    private void leftRotate(){
-
+    private Node leftRotate(Node node){
+        return null;
     }
 
-    private void rightRotate(){
-
-    }
-
-    private void rebalance(){
-        leftRotate();
-        rightRotate();
+    private Node rightRotate(Node node){
+        Node newRoot = node.left;
+        node.left = root.left.right;
+        newRoot.right = node;
+        newRoot.height = height(newRoot);
+        return newRoot;
     }
 
 }

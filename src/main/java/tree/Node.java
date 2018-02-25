@@ -29,4 +29,5 @@ public class Node<Key extends Comparable<Key>,Value> {
 
     public Node<Key,Value> left;
     public Node<Key,Value> right;
+    public int height;
 }
