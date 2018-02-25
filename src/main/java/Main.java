@@ -1,15 +1,16 @@
-import linked_list.LinkedList;
-import linked_list.*;
-import stack.Stack;
+import tree.BinarySearchTree;
 
 public class Main {
 
     public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.push(2);
-        linkedList.push(1);
-        linkedList.push(1);
-        linkedList.push(2);
-        System.out.println(linkedList.isPalindrome());
+        BinarySearchTree<Integer,Integer> binarySearchTree = new BinarySearchTree<>();
+        binarySearchTree.insert(50,1);
+        binarySearchTree.insert(19,1);
+        binarySearchTree.insert(55,2);
+        binarySearchTree.insert(20,3);
+        binarySearchTree.insert(23,3);
+        binarySearchTree.insert(23,3);
+        binarySearchTree.insert(21,3);
+        binarySearchTree.print();
     }
 }
