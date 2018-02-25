@@ -1,5 +1,7 @@
 import tree.BinarySearchTree;
 
+import java.util.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -9,8 +11,8 @@ public class Main {
         binarySearchTree.insert(55,2);
         binarySearchTree.insert(20,3);
         binarySearchTree.insert(23,3);
+        binarySearchTree.insert(23,3);
         binarySearchTree.insert(21,3);
-        binarySearchTree.delete(19);
         binarySearchTree.print();
     }
 }

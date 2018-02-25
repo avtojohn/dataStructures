@@ -1,6 +1,8 @@
 package tree;
 
- public class Node<Key extends Comparable<Key>,Value> {
+import java.util.Comparator;
+
+public class Node<Key extends Comparable<Key>,Value> {
     private Value value;
     private Key key;
 

@@ -17,10 +17,10 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
             node=new Node<>(key,value);
             return node;
         }
-        if(node.getKey().compareTo(key)==-1){
+        if(node.getKey().compareTo(key) < 0){
              node.right = insertRecurson(node.right,key,value);
         }
-        if(node.getKey().compareTo(key)==1){
+        if(node.getKey().compareTo(key) > 0){
              node.left = insertRecurson(node.left,key,value);
         }
         return node;
